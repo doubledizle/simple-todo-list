@@ -14,27 +14,27 @@
 
 </head>
 <body>
-  <section class="todo-container">
-    <h2>To Do List</h2>
-    <section class="todo">
-      <form action="/" method="post" class="todo-header">
-        <input type="text" name="title" value="title">
-        <textarea rows="6" cols="45" name="content">content</textarea>
-        <button type="submit"><span class="fas fa-plus">Add Text</span></button>
+  <section class="todo-container"> <!-- primary container -->
+    <h2>To Do List</h2> <!-- this is the header -->
+    <section class="todo"> <!-- main sectino that holds the form and list items -->
+      <form action="/" method="post" class="todo-header"> <!-- form container -->
+        <input type="text" name="title" value="title"> <!-- input area-->
+        <textarea rows="6" cols="45" name="content">content</textarea> <!-- text body area-->
+        <button type="submit"><span class="fas fa-plus"></span>Add Text</button> <!-- submit button-->
       </form>
       <ul class="todo-list">
         <% todoTasks.forEach(task => {%> <!-- pull each task entry and display it as follows -->
-        <li class="todo-list-item">
-          <div class="todo-list-item-title">
-            <%= task.title %>
+        <li class="todo-list-item"> <!-- each item is a 'list item' element-->
+          <div class="todo-list-item-title"> <!-- div to apply title style-->
+            <%= task.title %> <!-- this is the title entry in the DB -->
           </div>
-          <div class="todo-list-item-content">
-            <%= task.content %>
+          <div class="todo-list-item-content"> <!-- div to apply content style-->
+            <%= task.content %> <!-- this is the content entry in the DB -->
           </div>
-            <a href="/edit/<%= task._id %>" class="edit"><span class="fas fa-edit"></span></a>
-            <a href="/remove/<%= task._id %>" class="remove"><span class="fas fa-times"></span></a>
+            <a href="/edit/<%= task._id %>" class="edit"><span class="fas fa-edit"></span></a> <!-- edit button -->
+            <a href="/remove/<%= task._id %>" class="remove"><span class="fas fa-times"></span></a> <!-- remove button -->
         </li>
-        <% }) %>
+        <% }) %> <!-- this caps off the EJS code -->
       </ul>
     </section>
   </section>
